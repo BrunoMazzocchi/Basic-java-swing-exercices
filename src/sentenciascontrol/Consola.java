@@ -4,6 +4,11 @@
  * and open the template in the editor.
  */
 package sentenciascontrol;
+import java.util.Scanner;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Date;
+import java.text.SimpleDateFormat;  
 
 /**
  *
@@ -17,7 +22,21 @@ public class Consola extends javax.swing.JInternalFrame {
     public Consola() {
         initComponents();
     }
+    
+        private static String getInput(String msg){
+        Scanner scanner = new Scanner(System.in);
+        System.out.println(msg);
 
+        return scanner.nextLine();
+    }
+
+        private static char getChar(String msg){
+        Scanner scanner = new Scanner(System.in);
+        System.out.println(msg);
+        String value = scanner.nextLine();
+        
+        return value.charAt(0);
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -203,22 +222,83 @@ public class Consola extends javax.swing.JInternalFrame {
 
     private void bRealizar2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bRealizar2ActionPerformed
         // TODO add your handling code here:
+        
+        try{
+        Double num1 = Double.parseDouble(getInput("Ingrese el 1"));
+        Double num2 = Double.parseDouble(getInput("Ingrese el 2"));
+        
+        Double result = num1 / num2; 
+        System.out.println("El resultado de " + num1 + " entre " + num2 + " es: " + result);  
+        } catch(Exception ex){
+            System.out.println(ex);
+            System.out.println("No tiene sentido lo que consultaste");
+        }   
+
     }//GEN-LAST:event_bRealizar2ActionPerformed
 
     private void bRealizar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bRealizar1ActionPerformed
         // TODO add your handling code here:
+        try{
+        Double tb = Double.parseDouble(getInput("Ingrese el valor en TB"));
+        Double result = tb * 1048576; 
+        result = result * 1000000;
+        System.out.println("El resultado de " + tb + " a kb es: " + result);  
+        } catch(Exception ex){
+            System.out.println(ex);
+            System.out.println("No tiene sentido lo que consultaste");
+        }   
+
+
+        
     }//GEN-LAST:event_bRealizar1ActionPerformed
 
     private void bRealizar3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bRealizar3ActionPerformed
         // TODO add your handling code here:
+        List<Double> products = new ArrayList<>();
+        Double discount = Double.parseDouble(getInput("Ingrese el descuento, si no existe entonces 0"));
+        Double result = 0.0; 
+
+      
+        
+        while(products.size() < 4) {
+           Double num = Double.parseDouble(getInput("Ingrese el 1"));
+           num = num + (num * 0.15);
+           products.add(num);
+        }
+        
+        for(int i = 0; i < products.size(); i++){
+           result = result + products.get(i );
+        }
+        
+        if(discount >= 0.0){
+            result = result - (result * (discount/100));
+        } 
+        
+        
+        
+        if(result < 0){
+            System.out.println("Gracias por el regalo");
+        }
+        System.out.println(result);
     }//GEN-LAST:event_bRealizar3ActionPerformed
 
     private void bRealizar4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bRealizar4ActionPerformed
         // TODO add your handling code here:
+        String value = getInput("Ingrese un digito");
+        char ch; 
+        
+        for(int i = 0; i<value.length(); i++){
+            System.out.println(value.charAt(i));
+        }
+        
     }//GEN-LAST:event_bRealizar4ActionPerformed
 
     private void bRealizar5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bRealizar5ActionPerformed
         // TODO add your handling code here:
+        Double num1 = Double.parseDouble(getInput("Ingrese un numero para sacar su raiz cuadrada"));
+        Double num2 = Math.sqrt(num1);
+        
+        System.out.println("La raiz c es: " + num2);
     }//GEN-LAST:event_bRealizar5ActionPerformed
 
     private void bRealizar6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bRealizar6ActionPerformed
@@ -227,10 +307,29 @@ public class Consola extends javax.swing.JInternalFrame {
 
     private void bRealizar7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bRealizar7ActionPerformed
         // TODO add your handling code here:
+        ArrayList<Character> charArray = new ArrayList<>();
+        
+        while(charArray.size() < 6) {
+           char ch =  getChar("Ingrese un caracter, sino se tomara solo el primer valor");
+           charArray.add(ch);
+
+        }
+        System.out.println(charArray);
+        String result = "";
+        
+        for(int i = 0; i < charArray.size(); i++){
+            result = result + charArray.get(i).toString();
+        }
+        
+        System.out.println(result);
+       
     }//GEN-LAST:event_bRealizar7ActionPerformed
 
     private void bRealizar8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bRealizar8ActionPerformed
         // TODO add your handling code here:
+    Date date = new Date();  
+    SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");  
+    System.out.println(formatter.format(date));  
     }//GEN-LAST:event_bRealizar8ActionPerformed
 
 

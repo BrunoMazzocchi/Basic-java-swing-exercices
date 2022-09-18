@@ -6,6 +6,7 @@
 package sentenciascontrol;
 
 import javax.swing.JOptionPane;
+import javax.swing.JTextField;
 
 /**
  *
@@ -18,6 +19,15 @@ public class Logicos extends javax.swing.JInternalFrame {
      */
     public Logicos() {
         initComponents();
+    }
+    private int num1;
+    private int num2;
+    private String text1;
+    private String text2;
+
+    private void clearText(JTextField text, JTextField text2) {
+        text.setText("");
+        text2.setText("");
     }
 
     /**
@@ -86,58 +96,114 @@ public class Logicos extends javax.swing.JInternalFrame {
         lvs1.setText("vs.");
 
         bVerificar1.setText("Verificar");
+        bVerificar1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bVerificar1ActionPerformed(evt);
+            }
+        });
 
         lEjer2.setText("2. Introduzca dos números para calcular al mayor");
+
+        tfNum3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tfNum3ActionPerformed(evt);
+            }
+        });
 
         lvs2.setText("vs.");
 
         bCalcular2.setText("Calcular");
+        bCalcular2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bCalcular2ActionPerformed(evt);
+            }
+        });
 
         lEjer3.setText("3. Introduzca dos números para calcular al menor");
 
         lvs3.setText("vs.");
 
         bCalcular3.setText("Calcular");
+        bCalcular3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bCalcular3ActionPerformed(evt);
+            }
+        });
 
         lEjer4.setText("4. Introduzca dos números para calcular el valor de verdad");
 
         lcompara4.setText(">=");
 
         bCalcular4.setText("Calcular");
+        bCalcular4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bCalcular4ActionPerformed(evt);
+            }
+        });
 
         lEjer5.setText("5. Introduzca dos números para calcular el valor de verdad");
 
         lcompara5.setText("<=");
 
         bCalcular5.setText("Calcular");
+        bCalcular5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bCalcular5ActionPerformed(evt);
+            }
+        });
 
         lEjer6.setText("6. Introduzca dos caracteres para verificar si son iguales");
 
         lvs5.setText("vs.");
 
         bVerificar6.setText("Verificar");
+        bVerificar6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bVerificar6ActionPerformed(evt);
+            }
+        });
 
         lEjer7.setText("7. Introduzca dos caracteres para verificar si son diferentes");
 
         lvs6.setText("vs.");
 
         bVerificar7.setText("Verificar");
+        bVerificar7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bVerificar7ActionPerformed(evt);
+            }
+        });
 
         lEjer8.setText("8. Introduzca dos cadenas de caracteres para verificar si son iguales");
 
         lvs7.setText("vs.");
 
         bVerificar8.setText("Verificar");
+        bVerificar8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bVerificar8ActionPerformed(evt);
+            }
+        });
 
         lEjer9.setText("9. Introduzca dos cadenas de caracteres para calcular la mayor");
 
         bCalcular9.setText("Calcular");
+        bCalcular9.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bCalcular9ActionPerformed(evt);
+            }
+        });
 
         lvs8.setText("vs.");
 
         lEjer10.setText("10. Introduzca un número para verificar si es positivo o negativo");
 
         bVerificar10.setText("Verificar");
+        bVerificar10.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bVerificar10ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -332,6 +398,212 @@ public class Logicos extends javax.swing.JInternalFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void bVerificar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bVerificar1ActionPerformed
+        // TODO add your handling code here:
+        try {
+            num1 = Integer.parseInt(tfNum1.getText());
+            num2 = Integer.parseInt(tfNum2.getText());
+
+            if (num1 == num2) {
+                JOptionPane.showMessageDialog(null, "Son iguales");
+            } else {
+                JOptionPane.showMessageDialog(null, "No son iguales");
+            }
+            clearText(tfNum1, tfNum2);
+
+        } catch (Exception ex) {
+            System.out.println(ex);
+            JOptionPane.showMessageDialog(null, "No tiene sentido lo que pediste");
+
+        }
+
+    }//GEN-LAST:event_bVerificar1ActionPerformed
+
+    private void tfNum3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfNum3ActionPerformed
+
+    }//GEN-LAST:event_tfNum3ActionPerformed
+
+    private void bCalcular2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bCalcular2ActionPerformed
+        // TODO add your handling code here:
+        try {
+            num1 = Integer.parseInt(tfNum3.getText());
+            num2 = Integer.parseInt(tfNum4.getText());
+
+            if (num1 < num2) {
+                JOptionPane.showMessageDialog(null, "El mayor es: " + num2);
+            } else {
+                JOptionPane.showMessageDialog(null, "El mayor es: " + num1);
+            }
+            clearText(tfNum3, tfNum4);
+
+        } catch (Exception ex) {
+            System.out.println(ex);
+            JOptionPane.showMessageDialog(null, "No tiene sentido lo que pediste");
+
+        }
+    }//GEN-LAST:event_bCalcular2ActionPerformed
+
+    private void bCalcular3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bCalcular3ActionPerformed
+        // TODO add your handling code here:
+        // TODO add your handling code here:
+        try {
+            num1 = Integer.parseInt(tfNum5.getText());
+            num2 = Integer.parseInt(tfNum6.getText());
+
+            if (num1 < num2) {
+                JOptionPane.showMessageDialog(null, "El menor es: " + num1);
+            } else {
+                JOptionPane.showMessageDialog(null, "El menor es: " + num2);
+            }
+            clearText(tfNum5, tfNum6);
+
+        } catch (Exception ex) {
+            System.out.println(ex);
+            JOptionPane.showMessageDialog(null, "No tiene sentido lo que pediste");
+
+        }
+    }//GEN-LAST:event_bCalcular3ActionPerformed
+
+    private void bCalcular4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bCalcular4ActionPerformed
+        // TODO add your handling code here:
+        // TODO add your handling code here:
+        try {
+            num1 = Integer.parseInt(tfNum7.getText());
+            num2 = Integer.parseInt(tfNum8.getText());
+
+            if (num1 >= num2) {
+                JOptionPane.showMessageDialog(null, "Corrupto");
+            } else {
+                JOptionPane.showMessageDialog(null, "Negativo");
+            }
+            clearText(tfNum7, tfNum8);
+
+        } catch (Exception ex) {
+            System.out.println(ex);
+            JOptionPane.showMessageDialog(null, "No tiene sentido lo que pediste");
+
+        }
+    }//GEN-LAST:event_bCalcular4ActionPerformed
+
+    private void bCalcular5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bCalcular5ActionPerformed
+        // TODO add your handling code here:
+        try {
+            num1 = Integer.parseInt(tfNum9.getText());
+            num2 = Integer.parseInt(tfNum10.getText());
+
+            if (num1 <= num2) {
+                JOptionPane.showMessageDialog(null, "Corrupto");
+            } else {
+                JOptionPane.showMessageDialog(null, "Negativo");
+            }
+            clearText(tfNum9, tfNum10);
+
+        } catch (Exception ex) {
+            System.out.println(ex);
+            JOptionPane.showMessageDialog(null, "No tiene sentido lo que pediste");
+
+        }
+    }//GEN-LAST:event_bCalcular5ActionPerformed
+
+    private void bVerificar6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bVerificar6ActionPerformed
+        // TODO add your handling code here:
+        try {
+            text1 = tfCaracter1.getText();
+            text2 = tfCaracter2.getText();
+
+            if (text1.equals(text2)) {
+                JOptionPane.showMessageDialog(null, "Corrupto");
+            } else {
+                JOptionPane.showMessageDialog(null, "Negativo");
+            }
+            clearText(tfCaracter1, tfCaracter2);
+
+        } catch (Exception ex) {
+            System.out.println(ex);
+            JOptionPane.showMessageDialog(null, "No tiene sentido lo que pediste");
+
+        }
+    }//GEN-LAST:event_bVerificar6ActionPerformed
+
+    private void bVerificar7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bVerificar7ActionPerformed
+        // TODO add your handling code here:
+        try {
+            text1 = tfCaracter3.getText();
+            text2 = tfCaracter4.getText();
+
+            if (!text1.equals(text2)) {
+                JOptionPane.showMessageDialog(null, "Corrupto");
+            } else {
+                JOptionPane.showMessageDialog(null, "Negativo");
+            }
+            clearText(tfCaracter3, tfCaracter4);
+
+        } catch (Exception ex) {
+            System.out.println(ex);
+            JOptionPane.showMessageDialog(null, "No tiene sentido lo que pediste");
+
+        }
+    }//GEN-LAST:event_bVerificar7ActionPerformed
+
+    private void bVerificar8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bVerificar8ActionPerformed
+        // TODO add your handling code here:
+        try {
+            text1 = tfCadena1.getText();
+            text2 = tfCadena2.getText();
+
+            if (text1.equals(text2)) {
+                JOptionPane.showMessageDialog(null, "Corrupto");
+            } else {
+                JOptionPane.showMessageDialog(null, "Negativo");
+            }
+            clearText(tfCadena1, tfCadena2);
+
+        } catch (Exception ex) {
+            System.out.println(ex);
+            JOptionPane.showMessageDialog(null, "No tiene sentido lo que pediste");
+
+        }
+    }//GEN-LAST:event_bVerificar8ActionPerformed
+
+    private void bCalcular9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bCalcular9ActionPerformed
+        // TODO add your handling code here:
+        try {
+            text1 = tfCadena3.getText();
+            text2 = tfCadena4.getText();
+
+            if (!text1.equals(text2)) {
+                JOptionPane.showMessageDialog(null, "Corrupto");
+            } else {
+                JOptionPane.showMessageDialog(null, "Negativo");
+            }
+            clearText(tfCadena3, tfCadena4);
+
+        } catch (Exception ex) {
+            System.out.println(ex);
+            JOptionPane.showMessageDialog(null, "No tiene sentido lo que pediste");
+
+        }
+    }//GEN-LAST:event_bCalcular9ActionPerformed
+
+    private void bVerificar10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bVerificar10ActionPerformed
+        // TODO add your handling code here:
+        try {
+            num1 = Integer.parseInt(tfNum11.getText());
+
+            if (num1 >= 0) {
+                JOptionPane.showMessageDialog(null, "Corrupto");
+            } else {
+                JOptionPane.showMessageDialog(null, "Negativo");
+            }
+            clearText(tfNum11, null);
+
+        } catch (Exception ex) {
+            System.out.println(ex);
+            JOptionPane.showMessageDialog(null, "No tiene sentido lo que pediste");
+
+        }
+    }//GEN-LAST:event_bVerificar10ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

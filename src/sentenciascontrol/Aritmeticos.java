@@ -5,6 +5,9 @@
  */
 package sentenciascontrol;
 
+import javax.swing.JOptionPane;
+import javax.swing.JTextField;
+
 /**
  *
  * @author Armando J. López L.
@@ -16,6 +19,17 @@ public class Aritmeticos extends javax.swing.JInternalFrame {
      */
     public Aritmeticos() {
         initComponents();
+    }
+
+    private int num1;
+    private int num2;
+    private int num3;
+    private int num4;
+    private int num5;
+
+    private void clearText(JTextField text, JTextField text2) {
+        text.setText("");
+        text2.setText("");
     }
 
     /**
@@ -83,12 +97,22 @@ public class Aritmeticos extends javax.swing.JInternalFrame {
         lvs1.setText("vs.");
 
         bVerificar1.setText("Verificar");
+        bVerificar1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bVerificar1ActionPerformed(evt);
+            }
+        });
 
         lEjer2.setText("2. Calcular el resultado de la expresión");
 
         lsuma2.setText("+");
 
         bCalcular4.setText("Calcular");
+        bCalcular4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bCalcular4ActionPerformed(evt);
+            }
+        });
 
         lresta2.setText("-");
 
@@ -107,6 +131,11 @@ public class Aritmeticos extends javax.swing.JInternalFrame {
         lDiv3.setText("/");
 
         bCalcular3.setText("Calcular");
+        bCalcular3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bCalcular3ActionPerformed(evt);
+            }
+        });
 
         lParen31.setText("(");
 
@@ -123,6 +152,11 @@ public class Aritmeticos extends javax.swing.JInternalFrame {
         la4.setText("a=");
 
         bCalcular2.setText("Calcular");
+        bCalcular2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bCalcular2ActionPerformed(evt);
+            }
+        });
 
         lEjer5.setText("5. Calcular el resultado de la expresión: x^a * a/b");
 
@@ -131,6 +165,11 @@ public class Aritmeticos extends javax.swing.JInternalFrame {
         la5.setText("a=");
 
         bCalcular5.setText("Calcular");
+        bCalcular5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bCalcular5ActionPerformed(evt);
+            }
+        });
 
         lb5.setText("b=");
 
@@ -310,6 +349,112 @@ public class Aritmeticos extends javax.swing.JInternalFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void bVerificar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bVerificar1ActionPerformed
+        // TODO add your handling code here:
+        try {
+            num1 = Integer.parseInt(tfNum1.getText());
+            num2 = Integer.parseInt(tfNum2.getText());
+
+            if (num1 % num2 == 0) {
+                JOptionPane.showMessageDialog(null, "Es multiplo");
+            } else {
+                JOptionPane.showMessageDialog(null, "No es multiplo");
+            }
+            clearText(tfNum1, tfNum2);
+
+        } catch (Exception ex) {
+            System.out.println(ex);
+            JOptionPane.showMessageDialog(null, "No tiene sentido lo que pediste");
+
+        }
+    }//GEN-LAST:event_bVerificar1ActionPerformed
+
+    private void bCalcular2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bCalcular2ActionPerformed
+        // TODO add your handling code here:
+
+        try {
+            num1 = Integer.parseInt(tfNum6.getText());
+            num2 = Integer.parseInt(tfNum7.getText());
+            num3 = Integer.parseInt(tfNum5.getText());
+            num4 = Integer.parseInt(tfNum4.getText());
+            num5 = Integer.parseInt(tfNum3.getText());
+            int result;
+            result = num5 + num4 - ((num3 * num2) / num1);
+
+            JOptionPane.showMessageDialog(null, "El resultado es: " + result);
+            clearText(tfNum1, tfNum2);
+
+        } catch (Exception ex) {
+            System.out.println(ex);
+            JOptionPane.showMessageDialog(null, "No tiene sentido lo que pediste");
+        }
+
+
+    }//GEN-LAST:event_bCalcular2ActionPerformed
+
+    private void bCalcular3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bCalcular3ActionPerformed
+        // TODO add your handling code here:
+        try {
+            num1 = Integer.parseInt(tfNum8.getText());
+            num2 = Integer.parseInt(tfNum9.getText());
+            num3 = Integer.parseInt(tfNum10.getText());
+            num4 = Integer.parseInt(tfNum11.getText());
+            num5 = Integer.parseInt(tfNum12.getText());
+            int result;
+
+            result = (num1 + num2) * num3 - (num4 / num5);
+
+            JOptionPane.showMessageDialog(null, "El resultado es: " + result);
+            clearText(tfNum1, tfNum2);
+
+        } catch (Exception ex) {
+            System.out.println(ex);
+            JOptionPane.showMessageDialog(null, "No tiene sentido lo que pediste");
+        }
+
+
+    }//GEN-LAST:event_bCalcular3ActionPerformed
+
+    private void bCalcular4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bCalcular4ActionPerformed
+        // TODO add your handling code here:
+        try {
+            num1 = Integer.parseInt(tfNum13.getText());
+            num2 = Integer.parseInt(tfNum14.getText());
+
+            Double result;
+
+            result = Math.pow(num1, num2);
+
+            JOptionPane.showMessageDialog(null, "El resultado es: " + result);
+            clearText(tfNum1, tfNum2);
+
+        } catch (Exception ex) {
+            System.out.println(ex);
+            JOptionPane.showMessageDialog(null, "No tiene sentido lo que pediste");
+        }
+    }//GEN-LAST:event_bCalcular4ActionPerformed
+
+    private void bCalcular5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bCalcular5ActionPerformed
+        // TODO add your handling code here:
+
+        try {
+            Double dNum1 = Double.parseDouble(tfNum15.getText());
+            Double dNum2 = Double.parseDouble(tfNum16.getText());
+            Double dNum3 = Double.parseDouble(tfNum17.getText());
+            Double dNum4 = dNum2 / dNum3; 
+            
+            Double result;
+            result = Math.pow(dNum1, (dNum2 * dNum4));
+
+            JOptionPane.showMessageDialog(null, "El resultado es: " + result);
+            clearText(tfNum1, tfNum2);
+
+        } catch (Exception ex) {
+            System.out.println(ex);
+            JOptionPane.showMessageDialog(null, "No tiene sentido lo que pediste");
+        }
+    }//GEN-LAST:event_bCalcular5ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
