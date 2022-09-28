@@ -242,7 +242,7 @@
                   <Component id="chbIsland" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="chbSanJuan" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace pref="5" max="32767" attributes="0"/>
+                  <EmptySpace max="32767" attributes="0"/>
                   <Component id="bMostrar2" min="-2" max="-2" attributes="0"/>
               </Group>
           </Group>
@@ -273,6 +273,9 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="Mostrar"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="bMostrar2ActionPerformed"/>
+          </Events>
         </Component>
       </SubComponents>
     </Container>
@@ -317,7 +320,7 @@
                   <Component id="rbCasado" min="-2" max="-2" attributes="0"/>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Component id="rbOtro" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace pref="5" max="32767" attributes="0"/>
+                  <EmptySpace max="32767" attributes="0"/>
                   <Component id="bMostrar1" min="-2" max="-2" attributes="0"/>
               </Group>
           </Group>
@@ -352,6 +355,9 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="Mostrar"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="bMostrar1ActionPerformed"/>
+          </Events>
         </Component>
       </SubComponents>
     </Container>
@@ -364,6 +370,9 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Opci&#xf3;n A"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="tbOpcionActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="lEjer4">
       <Properties>
@@ -376,6 +385,9 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Validar"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="bValidar4ActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="lEjer5">
       <Properties>
@@ -388,11 +400,17 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Validar"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="bValidar5ActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="bMostrar3">
       <Properties>
         <Property name="text" type="java.lang.String" value="Mostrar"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="bMostrar3ActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="lEjer6">
       <Properties>
@@ -405,6 +423,9 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Validar"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="bValidar6ActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="lEjer7">
       <Properties>
@@ -417,6 +438,9 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Validar"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="bValidar7ActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="lEjer8">
       <Properties>
@@ -429,6 +453,9 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Calcular"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="bCalcular8ActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JTextField" name="tfNum6">
     </Component>
@@ -447,6 +474,9 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Calcular"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="bCalcular9ActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="lEjer10">
       <Properties>
@@ -459,6 +489,9 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Mostrar"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="bMostrar10ActionPerformed"/>
+      </Events>
     </Component>
   </SubComponents>
 </Form>

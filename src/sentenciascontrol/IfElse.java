@@ -5,6 +5,12 @@
  */
 package sentenciascontrol;
 
+import javax.swing.JOptionPane;
+import java.util.ArrayList;
+import java.util.List;
+import javax.swing.JRadioButton;
+import javax.swing.JCheckBox;
+
 /**
  *
  * @author Armando J. López L.
@@ -85,6 +91,11 @@ public class IfElse extends javax.swing.JInternalFrame {
         chbSanJuan.setText("San Juan del Sur");
 
         bMostrar2.setText("Mostrar");
+        bMostrar2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bMostrar2ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout pLugaresVisitadosLayout = new javax.swing.GroupLayout(pLugaresVisitados);
         pLugaresVisitados.setLayout(pLugaresVisitadosLayout);
@@ -112,7 +123,7 @@ public class IfElse extends javax.swing.JInternalFrame {
                 .addComponent(chbIsland)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(chbSanJuan)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 5, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(bMostrar2))
         );
 
@@ -130,6 +141,11 @@ public class IfElse extends javax.swing.JInternalFrame {
         rbOtro.setText("Otro");
 
         bMostrar1.setText("Mostrar");
+        bMostrar1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bMostrar1ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout pEstadoCivilLayout = new javax.swing.GroupLayout(pEstadoCivil);
         pEstadoCivil.setLayout(pEstadoCivilLayout);
@@ -155,43 +171,88 @@ public class IfElse extends javax.swing.JInternalFrame {
                 .addComponent(rbCasado)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(rbOtro)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 5, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(bMostrar1))
         );
 
         lEjer3.setText("3. Muestre un mensaje con el estado del botón");
 
         tbOpcion.setText("Opción A");
+        tbOpcion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tbOpcionActionPerformed(evt);
+            }
+        });
 
         lEjer4.setText("4. Valide la mayoría de edad (>=21 años)");
 
         bValidar4.setText("Validar");
+        bValidar4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bValidar4ActionPerformed(evt);
+            }
+        });
 
         lEjer5.setText("5. Valide si el número es una calificación válida (0 - 100)");
 
         bValidar5.setText("Validar");
+        bValidar5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bValidar5ActionPerformed(evt);
+            }
+        });
 
         bMostrar3.setText("Mostrar");
+        bMostrar3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bMostrar3ActionPerformed(evt);
+            }
+        });
 
         lEjer6.setText("6. Valide si la calificación es aprobada o reprobada");
 
         bValidar6.setText("Validar");
+        bValidar6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bValidar6ActionPerformed(evt);
+            }
+        });
 
         lEjer7.setText("7. Valide si el año es bisiesto");
 
         bValidar7.setText("Validar");
+        bValidar7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bValidar7ActionPerformed(evt);
+            }
+        });
 
         lEjer8.setText("8. Calcule el mayor de los números");
 
         bCalcular8.setText("Calcular");
+        bCalcular8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bCalcular8ActionPerformed(evt);
+            }
+        });
 
         lEjer9.setText("9. Calcule la cantidad de días del mes");
 
         bCalcular9.setText("Calcular");
+        bCalcular9.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bCalcular9ActionPerformed(evt);
+            }
+        });
 
         lEjer10.setText("10. Muestre el reconocimiento según la calificación (E, MB, B, D)");
 
         bMostrar10.setText("Mostrar");
+        bMostrar10.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bMostrar10ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -336,6 +397,217 @@ public class IfElse extends javax.swing.JInternalFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void bMostrar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bMostrar1ActionPerformed
+        // TODO add your handling code here:
+        int option = getPosition();
+        switch (option) {
+            case 0:
+                JOptionPane.showMessageDialog(null, "Soltero/a");
+                break;
+            case 1:
+                JOptionPane.showMessageDialog(null, "Casado/a");
+                break;
+            case 2:
+                JOptionPane.showMessageDialog(null, "Otro/a");
+                break;
+            default:
+                System.out.println("Q pedo");
+                break;
+
+        }
+    }//GEN-LAST:event_bMostrar1ActionPerformed
+
+    private void bMostrar2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bMostrar2ActionPerformed
+        // TODO add your handling code here:
+        JOptionPane.showMessageDialog(null, getVisitedPlaces());
+
+    }//GEN-LAST:event_bMostrar2ActionPerformed
+
+    private void tbOpcionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tbOpcionActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tbOpcionActionPerformed
+
+    private void bMostrar3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bMostrar3ActionPerformed
+        if (tbOpcion.isSelected()) {
+            JOptionPane.showMessageDialog(null, "Presionado");
+        } else {
+            JOptionPane.showMessageDialog(null, "No presionado");
+
+        }
+    }//GEN-LAST:event_bMostrar3ActionPerformed
+
+    private void bValidar4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bValidar4ActionPerformed
+        int num = Integer.parseInt(tfNum1.getText());
+        if (num >= 21) {
+            JOptionPane.showMessageDialog(null, "Mayor de edad");
+        } else if (num <= 0) {
+            JOptionPane.showMessageDialog(null, "Que");
+        } else {
+            JOptionPane.showMessageDialog(null, "Menor de edad");
+        }
+    }//GEN-LAST:event_bValidar4ActionPerformed
+
+    private void bValidar5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bValidar5ActionPerformed
+        // TODO add your handling code here:
+        int num = Integer.parseInt(tfNum2.getText());
+        if (num >= 0 & num <= 100) {
+            JOptionPane.showMessageDialog(null, "Valido");
+        } else {
+            JOptionPane.showMessageDialog(null, "Que");
+        }
+    }//GEN-LAST:event_bValidar5ActionPerformed
+
+    private void bValidar6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bValidar6ActionPerformed
+        // TODO add your handling code here:
+        int num = Integer.parseInt(tfNum3.getText());
+        if (num < 0 || num <= 60) {
+            JOptionPane.showMessageDialog(null, "Reprobado");
+        } else {
+            JOptionPane.showMessageDialog(null, "Aprobado");
+        }
+    }//GEN-LAST:event_bValidar6ActionPerformed
+
+    private void bValidar7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bValidar7ActionPerformed
+        // TODO add your handling code here:
+        int num = Integer.parseInt(tfNum3.getText());
+        if ((num % 4 == 0) && (num % 100 != 0) || (num % 400 == 0)) {
+            JOptionPane.showMessageDialog(null, "Bisiesto");
+        } else {
+            JOptionPane.showMessageDialog(null, "No bisiesto");
+        }
+    }//GEN-LAST:event_bValidar7ActionPerformed
+
+    private void bCalcular8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bCalcular8ActionPerformed
+        // TODO add your handling code here:
+        try {
+            int num1 = Integer.parseInt(tfNum5.getText());
+            int num2 = Integer.parseInt(tfNum6.getText());
+            int num3 = Integer.parseInt(tfNum7.getText());
+            int num4 = Integer.parseInt(tfNum8.getText());
+
+            List<Integer> numList = new ArrayList<>();
+            numList.add(num1);
+            numList.add(num2);
+            numList.add(num3);
+            numList.add(num4);
+
+            int num;
+            int mayor = 0;
+            for (int i = 0; i < numList.size(); i++) {
+                num = numList.get(i);
+
+                if (i == 0) {
+                    mayor = num;
+                }
+
+                if (num > mayor) {
+                    mayor = num;
+                }
+            }
+            JOptionPane.showMessageDialog(null, "El mayor es: " + mayor);
+        } catch (Exception ex) {
+            System.out.println(ex);
+            JOptionPane.showMessageDialog(null, "Que");
+        }
+    }//GEN-LAST:event_bCalcular8ActionPerformed
+
+    private void bCalcular9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bCalcular9ActionPerformed
+        // TODO add your handling code here:
+        int mes = Integer.parseInt(tfNum9.getText());
+        String r = "El mes tiene: ";
+        if (mes == 2) {
+            r = r + "28 dias";
+            JOptionPane.showMessageDialog(null, r);
+        } else if (checkIfHas31Days(mes)) {
+            r = r + "31 dias";
+            JOptionPane.showMessageDialog(null, r);
+        } else {
+            r = r + "30 dias";
+            JOptionPane.showMessageDialog(null, r);
+        }
+    }//GEN-LAST:event_bCalcular9ActionPerformed
+
+    private void bMostrar10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bMostrar10ActionPerformed
+        // TODO add your handling code here:
+        int score = Integer.parseInt(tfNum10.getText());
+        String r = "";
+        try {
+            if (score >= 90) {
+                r = "E";
+                JOptionPane.showMessageDialog(null, r);
+            } else if (score < 90 && score >= 85 ) {
+                r = "MB";
+                JOptionPane.showMessageDialog(null, r);
+            } else if (score < 85 && score >= 75) {
+                r = "B";
+                JOptionPane.showMessageDialog(null, r);
+            } else if (score < 75){
+                r = "D";
+                JOptionPane.showMessageDialog(null, r);
+            }
+        } catch (Exception ex) {
+            System.out.println(ex);
+            JOptionPane.showMessageDialog(null, "Que");
+        }
+    }//GEN-LAST:event_bMostrar10ActionPerformed
+
+    private boolean checkIfHas31Days(int monthToCheck) {
+        boolean r = false;
+        List<Integer> month = new ArrayList<>();
+        month.add(1);
+        month.add(3);
+        month.add(5);
+        month.add(7);
+        month.add(8);
+        month.add(10);
+        month.add(12);
+
+        for (int i = 0; i < month.size(); i++) {
+            if (month.get(i) == monthToCheck) {
+                r = true;
+            }
+        }
+        return r;
+    }
+
+    private int getPosition() {
+        int option = 0;
+        List<JRadioButton> options = new ArrayList<>();
+        options.add(rbSoltero);
+        options.add(rbCasado);
+        options.add(rbOtro);
+
+        for (int i = 0; i < options.size(); i++) {
+            if (options.get(i).isSelected()) {
+                option = options.indexOf(options.get(i));
+            }
+        }
+
+        return option;
+    }
+
+    private String getVisitedPlaces() {
+        String option = "He visitado: ";
+        List<JCheckBox> options = new ArrayList<>();
+        int counter = 0;
+        options.add(chbIsland);
+        options.add(chbLaguna);
+        options.add(chbOmetepe);
+        options.add(chbSanJuan);
+
+        for (int i = 0;
+                i < options.size(); i++) {
+            if (options.get(i).isSelected()) {
+                option = option + options.get(i).getText() + " ";
+                counter++;
+            }
+        }
+
+        if (counter == 0) {
+            option = option + "ningun lado xd";
+        }
+        return option;
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton bCalcular8;
