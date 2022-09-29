@@ -5,6 +5,10 @@
  */
 package sentenciascontrol;
 
+import java.util.Arrays;
+import javax.swing.JOptionPane;
+import javax.swing.DefaultListModel;
+
 /**
  *
  * @author José Alejandro Durán
@@ -17,6 +21,9 @@ public class Arreglo1 extends javax.swing.JInternalFrame {
     public Arreglo1() {
         initComponents();
     }
+    private int x;
+    private int num[] = new int[0];
+    final DefaultListModel model = new DefaultListModel();
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -54,7 +61,7 @@ public class Arreglo1 extends javax.swing.JInternalFrame {
         setResizable(true);
         setTitle("Arreglo Unidemensional | Elementos enteros");
 
-        pArreglo.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Arreglo de tipo entero", 2, 0));
+        pArreglo.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Arreglo de tipo entero", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION));
 
         lTam.setText("Tamaño:");
 
@@ -62,12 +69,22 @@ public class Arreglo1 extends javax.swing.JInternalFrame {
         tfTam.setText("0");
 
         bSetTam.setText("Establecer Tamaño");
+        bSetTam.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bSetTamActionPerformed(evt);
+            }
+        });
 
         lMultiplos.setText("Almacenar sólo números múltiplos de:");
 
         lElemento.setText("Elemento:");
 
         bAgregar.setText("Agregar");
+        bAgregar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bAgregarActionPerformed(evt);
+            }
+        });
 
         jScrollPane1.setViewportView(lsNumeros);
 
@@ -95,7 +112,7 @@ public class Arreglo1 extends javax.swing.JInternalFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(tfTam, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(bSetTam, javax.swing.GroupLayout.DEFAULT_SIZE, 151, Short.MAX_VALUE))))
+                                .addComponent(bSetTam, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                     .addGroup(pArregloLayout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(lMultiplos)
@@ -125,7 +142,7 @@ public class Arreglo1 extends javax.swing.JInternalFrame {
                 .addContainerGap())
         );
 
-        pInfoArreglo.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Información del arreglo", 2, 0));
+        pInfoArreglo.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Información del arreglo", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION));
 
         bMostrarMayorMenor.setText("Mostrar el mayor y menor de los elementos");
 
@@ -213,6 +230,45 @@ public class Arreglo1 extends javax.swing.JInternalFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+
+    private void bSetTamActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bSetTamActionPerformed
+        // TODO add your handling code here:
+        bSetTam.setEnabled(false);
+    }//GEN-LAST:event_bSetTamActionPerformed
+
+    private void bAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bAgregarActionPerformed
+        // TODO add your handling code here:
+        try {
+            int multipleOf = Integer.parseInt(tfMultiplo.getText());
+            int element = Integer.parseInt(tfElemento.getText());
+            int x = Integer.parseInt(tfTam.getText());
+            int isMul = element % multipleOf;
+            if (isMul == 0 & num.length != x) {
+                num = addArray(num.length, num, element);
+                model.addElement(element);
+                lsNumeros.setModel(model);
+                System.out.println(Arrays.toString(num));
+            } else {
+                JOptionPane.showMessageDialog(null, "Puede que alcanzaras el maximo, o que el numero no sea multiplo de " + multipleOf);
+            }
+        } catch (Exception ex) {
+            System.out.println(ex);
+        }
+
+
+    }//GEN-LAST:event_bAgregarActionPerformed
+
+    public int[] addArray(int n, int arr[], int x) {
+
+        int i;
+        int newarr[] = new int[n + 1];
+        for (i = 0; i < n; i++) {
+            newarr[i] = arr[i];
+        }
+        newarr[n] = x;
+        return newarr;
+    }
 
     /**
      * @param args the command line arguments

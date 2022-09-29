@@ -82,7 +82,7 @@
                                   <EmptySpace max="-2" attributes="0"/>
                                   <Component id="tfTam" min="-2" pref="39" max="-2" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="bSetTam" pref="151" max="32767" attributes="0"/>
+                                  <Component id="bSetTam" max="32767" attributes="0"/>
                               </Group>
                           </Group>
                       </Group>
@@ -140,6 +140,9 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="Establecer Tama&#xf1;o"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="bSetTamActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="lMultiplos">
           <Properties>
@@ -157,6 +160,9 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="Agregar"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="bAgregarActionPerformed"/>
+          </Events>
         </Component>
         <Container class="javax.swing.JScrollPane" name="jScrollPane1">
           <AuxValues>
