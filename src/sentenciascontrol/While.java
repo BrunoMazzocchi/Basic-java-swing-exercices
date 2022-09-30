@@ -5,6 +5,8 @@
  */
 package sentenciascontrol;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Armando J. López L.
@@ -81,6 +83,12 @@ public class While extends javax.swing.JInternalFrame {
 
         lEjer2.setText("2. Sumar los números decimales digitados, y mostrar cuando se digite -1");
 
+        tfCali4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tfCali4ActionPerformed(evt);
+            }
+        });
+
         lEjer3.setText("3. Verificar si el siguiente número es perfecto");
 
         lNumero.setText("Número:");
@@ -126,23 +134,24 @@ public class While extends javax.swing.JInternalFrame {
                                 .addComponent(tfOracion1))))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(10, 10, 10)
-                                .addComponent(lCalificacion)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(tfCali4, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(bContar4))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(10, 10, 10)
-                                .addComponent(tfNum3, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(bVerificar3))
                             .addComponent(lEjer1)
                             .addComponent(lEjer2)
                             .addComponent(lEjer3)
                             .addComponent(lEjer4)
-                            .addComponent(lEjer5))
+                            .addComponent(lEjer5)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(10, 10, 10)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(lCalificacion)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(tfCali4, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(bContar4))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(tfNum3, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(bVerificar3)))))
                         .addGap(0, 32, Short.MAX_VALUE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(bCalcular1)
@@ -201,28 +210,98 @@ public class While extends javax.swing.JInternalFrame {
 
     private void bVerificar3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bVerificar3ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_bVerificar3ActionPerformed
+        Double numero = Double.valueOf(tfNum3.getText());
 
+    }//GEN-LAST:event_bVerificar3ActionPerformed
+    Double temp = 0.0;
     private void bSumar2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bSumar2ActionPerformed
         // TODO add your handling code here:
+        Double numero = Double.valueOf(tfNum2.getText());
+        boolean controller = true;
+        try {
+
+            while (controller == true) {
+                if (Integer.parseInt(tfNum2.getText()) == -1) {
+                    controller = false;
+                    JOptionPane.showMessageDialog(null, "El total es: " + temp);
+
+                } else {
+                    temp = numero + temp;
+                    tfNum2.setText("");
+                }
+            }
+        } catch (NumberFormatException ex) {
+            System.out.println(ex);
+        }
     }//GEN-LAST:event_bSumar2ActionPerformed
 
+    private int notas;
     private void bContar4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bContar4ActionPerformed
-        try{
+        Double numero = Double.valueOf(tfCali4.getText());
+        boolean controller = true;
+        try {
 
-        }
-        catch(NumberFormatException ex){
+            while (controller == true) {
+                if (Integer.parseInt(tfCali4.getText()) == -1) {
+                    controller = false;
+                    JOptionPane.showMessageDialog(null, "El total es: " + notas);
 
+                } else if (numero >= 60.0 && numero <= 100.0) {
+                    notas = notas + 1;
+                    tfCali4.setText("");
+                }
+            }
+
+        } catch (NumberFormatException ex) {
+            System.out.println(ex);
         }
     }//GEN-LAST:event_bContar4ActionPerformed
 
     private void bCalcular1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bCalcular1ActionPerformed
         // TODO add your handling code here:
+        try {
+            String oracion = tfOracion1.getText().toLowerCase();
+            int i = 0;
+            int contador = 0;
+            while (i < oracion.length()) {
+                char ch = oracion.charAt(i);
+                if (ch == 'a' || ch == 'e' || ch == 'i' || ch == 'o' || ch == 'u') {
+                    contador++;
+                }
+                i++;
+            }
+            JOptionPane.showMessageDialog(null, "El total es: " + contador);
+
+        } catch (Exception ex) {
+            System.out.println(ex);
+        }
     }//GEN-LAST:event_bCalcular1ActionPerformed
 
     private void bPagar5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bPagar5ActionPerformed
         // TODO add your handling code here:
+        int contador = 0;
+
+        try {
+            Double value = Double.valueOf(tfCuota5.getText());
+            Double deuda = 1000.0;
+            while (deuda != 0.0) {
+                if (deuda < 0) {
+                    deuda = 0.0;
+                } else {
+                    deuda = deuda - value;
+                    contador = contador + 1;
+                    System.out.println(deuda);
+                }
+            }
+            JOptionPane.showMessageDialog(null, "El total es: " + contador);
+        } catch (Exception ex) {
+            System.out.println(ex);
+        }
     }//GEN-LAST:event_bPagar5ActionPerformed
+
+    private void tfCali4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfCali4ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tfCali4ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
