@@ -5,6 +5,12 @@
  */
 package sentenciascontrol;
 
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+import javax.swing.JOptionPane;
+import javax.swing.JRadioButton;
+
 /**
  *
  * @author Armando J. López L.
@@ -69,26 +75,51 @@ public class Switch extends javax.swing.JInternalFrame {
         jScrollPane1.setViewportView(taEjer1);
 
         bMostrar1.setText("Mostar");
+        bMostrar1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bMostrar1ActionPerformed(evt);
+            }
+        });
 
         lEjer2.setText("2. Según el número del mes, determine la época del año");
 
         bMostrar2.setText("Mostar");
+        bMostrar2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bMostrar2ActionPerformed(evt);
+            }
+        });
 
         lEjer3.setText("3. Según el número del mes, determine el número de días");
 
         bMostrar3.setText("Mostar");
+        bMostrar3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bMostrar3ActionPerformed(evt);
+            }
+        });
 
         lEjer4.setText("4. Realice la tarea que indica la selección");
 
         pEstadoCivil.setBorder(javax.swing.BorderFactory.createTitledBorder("Menú"));
 
         rbSoltero.setText("Calcular la raíz de un número");
+        rbSoltero.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rbSolteroActionPerformed(evt);
+            }
+        });
 
         rbCasado.setText("Calcular el residuo de una división entera");
 
         rbOtro.setText("Mostrar el menor de N números");
 
         bCalcular4.setText("Calcular");
+        bCalcular4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bCalcular4ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout pEstadoCivilLayout = new javax.swing.GroupLayout(pEstadoCivil);
         pEstadoCivil.setLayout(pEstadoCivilLayout);
@@ -123,6 +154,11 @@ public class Switch extends javax.swing.JInternalFrame {
         lEjer5.setText("5. Determinar si el número entero es par o impar");
 
         bDeterminar5.setText("Determinar");
+        bDeterminar5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bDeterminar5ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -194,6 +230,223 @@ public class Switch extends javax.swing.JInternalFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void bMostrar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bMostrar1ActionPerformed
+        // TODO add your handling code here:
+        String mes = tfMes1.getText().toLowerCase();
+        switch (monthDay(mes)) {
+            case 2:
+                JOptionPane.showMessageDialog(null, "Tiene 30");
+                break;
+            case 1:
+                JOptionPane.showMessageDialog(null, "Tiene 31");
+                break;
+            case 3:
+                JOptionPane.showMessageDialog(null, "Tiene 28");
+                break;
+            default:
+                JOptionPane.showMessageDialog(null, "Que");
+
+        }
+    }//GEN-LAST:event_bMostrar1ActionPerformed
+
+    private void bMostrar2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bMostrar2ActionPerformed
+        // TODO add your handling code here:
+        int mes = Integer.parseInt(tfMes2.getText());
+
+        switch (getStation(mes)) {
+            case 1:
+                JOptionPane.showMessageDialog(null, "Es invierno");
+                break;
+            case 2:
+                JOptionPane.showMessageDialog(null, "Es primavera");
+                break;
+            case 3:
+                JOptionPane.showMessageDialog(null, "Es verano");
+                break;
+            case 4:
+                JOptionPane.showMessageDialog(null, "Es otono");
+                break;
+            default:
+                JOptionPane.showMessageDialog(null, "Que");
+        }
+    }//GEN-LAST:event_bMostrar2ActionPerformed
+
+    private void bMostrar3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bMostrar3ActionPerformed
+        int mes = Integer.parseInt(tfMes3.getText());
+        switch (monthDayInt(mes)) {
+            case 2:
+                JOptionPane.showMessageDialog(null, "Tiene 30");
+                break;
+            case 1:
+                JOptionPane.showMessageDialog(null, "Tiene 31");
+                break;
+            case 3:
+                JOptionPane.showMessageDialog(null, "Tiene 28");
+                break;
+            default:
+                JOptionPane.showMessageDialog(null, "Que");
+        }
+    }//GEN-LAST:event_bMostrar3ActionPerformed
+
+    private void bDeterminar5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bDeterminar5ActionPerformed
+        // TODO add your handling code here:
+        int num = Integer.parseInt(tfNum5.getText());
+        int r = num % 2;
+
+        switch (r) {
+            case 0:
+                JOptionPane.showMessageDialog(null, "Par");
+                break;
+            case 1:
+                JOptionPane.showMessageDialog(null, "Impar");
+                break;
+            default:
+                JOptionPane.showMessageDialog(null, "Que");
+                break;
+        }
+    }//GEN-LAST:event_bDeterminar5ActionPerformed
+
+    private void bCalcular4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bCalcular4ActionPerformed
+        // TODO add your handling code here:
+        Double random = randomNum();
+        Double r = Math.sqrt(random);
+        Double random2 = randomNum();
+        Long r2 = Math.round(random) % Math.round(random2);
+        ArrayList<Long> numList = randomNumList();
+        int option = getPosition();
+        switch (option) {
+            case 0:
+                JOptionPane.showMessageDialog(null, "La raiz de " + random + " es: " + r + "");
+                break;
+            case 1:
+                JOptionPane.showMessageDialog(null, "El residuo de " + Math.round(random) + " y " + Math.round(random2) + " es: " + r2);
+                break;
+            case 2:
+                JOptionPane.showMessageDialog(null, "El menor en: " + numList + " es " + menor(numList));
+                break;
+            default:
+                System.out.println("Q pedo");
+                break;
+
+        }
+    }//GEN-LAST:event_bCalcular4ActionPerformed
+
+    private ArrayList<Long> randomNumList() {
+        ArrayList<Long> r = new ArrayList<>();
+
+        for (int i = 0; i < 10; i++) {
+            r.add(Math.round(randomNum()));
+        }
+
+        return r;
+    }
+
+    private Long menor(ArrayList<Long> array) {
+        Long menor = 0L;
+        
+        Collections.sort(array);
+        menor = array.get(0);
+        return menor;
+    }
+
+    private Double randomNum() {
+        Double r;
+        r = Math.random() * 100;
+        return r;
+    }
+
+
+    private void rbSolteroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbSolteroActionPerformed
+        // TODO add your handling code here:
+
+    }//GEN-LAST:event_rbSolteroActionPerformed
+
+    private int getPosition() {
+        int option = 0;
+        List<JRadioButton> options = new ArrayList<>();
+        options.add(rbSoltero);
+        options.add(rbCasado);
+        options.add(rbOtro);
+
+        for (int i = 0; i < options.size(); i++) {
+            if (options.get(i).isSelected()) {
+                option = options.indexOf(options.get(i));
+            }
+        }
+
+        return option;
+    }
+
+    private int getStation(int month) {
+        int r = 0;
+
+        int[] invierno = {12, 1, 2};
+        int[] primavera = {3, 4, 5};
+        int[] verano = {6, 7, 8};
+        int[] otono = {9, 10, 11};
+
+        for (int i = 0; i < invierno.length; i++) {
+            if (invierno[i] == month) {
+                r = 1;
+            } else if (primavera[i] == month) {
+                r = 2;
+            } else if (verano[i] == month) {
+                r = 3;
+            } else if (otono[i] == month) {
+                r = 4;
+            }
+        }
+        return r;
+    }
+
+    private int monthDayInt(int month) {
+        int r = 0;
+        if (month == 2) {
+            r = 3;
+        }
+
+        int[] longerMonth = {1, 3, 5,
+            7, 8, 10, 12};
+
+        int[] shorterMonth = {
+            4, 6, 9, 11
+        };
+        for (int i = 0; i < longerMonth.length; i++) {
+            if (longerMonth[i] == month) {
+                r = 1;
+            }
+        }
+        for (int i = 0; i < shorterMonth.length; i++) {
+            if (shorterMonth[i] == month) {
+                r = 2;
+            }
+        }
+        return r;
+    }
+
+    private int monthDay(String month) {
+        int r = 0;
+        if (month.equals("febrero")) {
+            r = 3;
+        }
+        String[] longerMonth = {"enero", "marzo", "mayo",
+            "julio", "agosto", "octubre", "diciembre"};
+
+        String[] shorterMonth = {
+            "abril", "junio", "septiembre", "noviembre"
+        };
+        for (int i = 0; i < longerMonth.length; i++) {
+            if (longerMonth[i].equals(month)) {
+                r = 1;
+            }
+        }
+        for (int i = 0; i < shorterMonth.length; i++) {
+            if (shorterMonth[i].equals(month)) {
+                r = 2;
+            }
+        }
+        return r;
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton bCalcular4;

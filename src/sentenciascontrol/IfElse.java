@@ -400,19 +400,15 @@ public class IfElse extends javax.swing.JInternalFrame {
     private void bMostrar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bMostrar1ActionPerformed
         // TODO add your handling code here:
         int option = getPosition();
-        switch (option) {
-            case 0:
-                JOptionPane.showMessageDialog(null, "Soltero/a");
-                break;
-            case 1:
-                JOptionPane.showMessageDialog(null, "Casado/a");
-                break;
-            case 2:
-                JOptionPane.showMessageDialog(null, "Otro/a");
-                break;
-            default:
-                System.out.println("Q pedo");
-                break;
+
+        if (option == 0) {
+            JOptionPane.showMessageDialog(null, "Soltero/a");
+        } else if (option == 1) {
+            JOptionPane.showMessageDialog(null, "Casado/a");
+        } else if (option == 2) {
+            JOptionPane.showMessageDialog(null, "Otro/a");
+        } else {
+            JOptionPane.showMessageDialog(null, "Que");
 
         }
     }//GEN-LAST:event_bMostrar1ActionPerformed
@@ -535,13 +531,13 @@ public class IfElse extends javax.swing.JInternalFrame {
             if (score >= 90) {
                 r = "E";
                 JOptionPane.showMessageDialog(null, r);
-            } else if (score < 90 && score >= 85 ) {
+            } else if (score < 90 && score >= 85) {
                 r = "MB";
                 JOptionPane.showMessageDialog(null, r);
             } else if (score < 85 && score >= 75) {
                 r = "B";
                 JOptionPane.showMessageDialog(null, r);
-            } else if (score < 75){
+            } else if (score < 75) {
                 r = "D";
                 JOptionPane.showMessageDialog(null, r);
             }
