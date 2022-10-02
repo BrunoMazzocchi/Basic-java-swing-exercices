@@ -5,6 +5,8 @@
  */
 package sentenciascontrol;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Armando J. López L.
@@ -55,6 +57,11 @@ public class ForEach extends javax.swing.JInternalFrame {
         jScrollPane1.setViewportView(taEjer1);
 
         bCalcular1.setText("Calcular");
+        bCalcular1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bCalcular1ActionPerformed(evt);
+            }
+        });
 
         jScrollPane2.setBackground(new java.awt.Color(204, 204, 204));
         jScrollPane2.setBorder(null);
@@ -75,6 +82,11 @@ public class ForEach extends javax.swing.JInternalFrame {
         jScrollPane2.setViewportView(taEjer2);
 
         bCalcular2.setText("Calcular");
+        bCalcular2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bCalcular2ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -105,6 +117,30 @@ public class ForEach extends javax.swing.JInternalFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void bCalcular1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bCalcular1ActionPerformed
+        // TODO add your handling code here:
+        String[] nombres = {"Juan", "María", "Miguel", "Susana"};
+        int temp;
+        for (String nombre : nombres) {
+            temp = nombre.length();
+            JOptionPane.showMessageDialog(null, "" + nombre + " tiene: " + temp);
+        }
+    }//GEN-LAST:event_bCalcular1ActionPerformed
+
+    private void bCalcular2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bCalcular2ActionPerformed
+        // TODO add your handling code here:
+        int[] numeros = {5, 8, 3, 7, 9,  3, 2, 1, 4, 6};
+        int menor = numeros.length;
+        for (int num : numeros) {
+            if (num < menor) {
+                menor = num;
+            }
+        }
+        JOptionPane.showMessageDialog(null, "El menor es: " + menor);
+
+
+    }//GEN-LAST:event_bCalcular2ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

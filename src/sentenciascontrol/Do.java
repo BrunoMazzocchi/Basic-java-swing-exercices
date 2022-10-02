@@ -5,6 +5,8 @@
  */
 package sentenciascontrol;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Armando J. López L.
@@ -213,31 +215,109 @@ public class Do extends javax.swing.JInternalFrame {
 
     private void bVerificar3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bVerificar3ActionPerformed
         // TODO add your handling code here:
+        int numero = Integer.parseInt(tfNum4.getText());
+        int i = 1;
+        do {
+
+            i++;
+
+        } while (numero % i != 0 && i < numero);
+
+        if (i <= 2) {
+            JOptionPane.showMessageDialog(null, "Es compuesto");
+
+        } else if (numero == 1) {
+            JOptionPane.showMessageDialog(null, "No es compuesto");
+        } else {
+            JOptionPane.showMessageDialog(null, "No es compuesto");
+
+        }
     }//GEN-LAST:event_bVerificar3ActionPerformed
 
     private void bVerificar4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bVerificar4ActionPerformed
-        try{
+        try {
+            String pwd = tfContra5.getText();
+            String realPwd = "abc.123";
+            int i = 0;
+            int count = 0;
+            do {
 
-        }
-        catch(NumberFormatException ex){
+                if (realPwd.charAt(i) == pwd.charAt(i)) {
 
+                    count++;
+                }
+                i++;
+
+            } while (i < pwd.length());
+
+            if (count == realPwd.length()) {
+                JOptionPane.showMessageDialog(null, "Correcta");
+            } else {
+                JOptionPane.showMessageDialog(null, "Incorrecta");
+            }
+        } catch (NumberFormatException ex) {
         }
     }//GEN-LAST:event_bVerificar4ActionPerformed
 
     private void bCalcular1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bCalcular1ActionPerformed
         // TODO add your handling code here:
+        int num = Integer.parseInt(tfNum1.getText());
+        int temp = 0;
+        int i = 0;
+        do {
+            temp = temp + i;
+
+            System.out.println(temp + " y " + i);
+            i++;
+        } while (i <= num);
+
+        JOptionPane.showMessageDialog(null, "La sumatoria entre " + 1 + " y " + num + " es " + temp);
+
     }//GEN-LAST:event_bCalcular1ActionPerformed
 
     private void bCalcular2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bCalcular2ActionPerformed
         // TODO add your handling code here:
+        int i = Integer.parseInt(tfNum2.getText());
+        int num = Integer.parseInt(tfNum3.getText());
+        int temp = 0;
+        int j = i;
+        do {
+            temp = temp + j;
+            j++;
+        } while (j <= num);
+        JOptionPane.showMessageDialog(null, "La sumatoria entre " + i + " y " + num + " es " + temp);
+
+
     }//GEN-LAST:event_bCalcular2ActionPerformed
 
     private void bImprimir6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bImprimir6ActionPerformed
         // TODO add your handling code here:
+        int serie = 7, num1 = 0, num2 = 1, suma = 1, i = 1;
+
+        // Muestro el valor inicial
+        do {
+            suma = num1 + num2;
+            num1 = num2;
+            num2 = suma;
+
+            System.out.println(num2);
+            i++;
+        } while (i < serie);
+
     }//GEN-LAST:event_bImprimir6ActionPerformed
 
     private void bCalcular5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bCalcular5ActionPerformed
         // TODO add your handling code here:
+        int num = 200;
+        int i = 2;
+        int r = 0;
+        do {
+            r = i + r;
+            System.out.println("La suma es: " + r + " y " + i);
+            i++;
+        } while (i <= 200);
+
+        System.out.println("El total es: " + r);
     }//GEN-LAST:event_bCalcular5ActionPerformed
 
 

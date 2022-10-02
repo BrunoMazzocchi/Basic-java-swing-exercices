@@ -5,6 +5,9 @@
  */
 package sentenciascontrol;
 
+import javax.swing.JOptionPane;
+import java.util.*;
+
 /**
  *
  * @author Armando J. López L.
@@ -213,16 +216,24 @@ public class For extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void bCalcular1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bCalcular1ActionPerformed
-        try{
 
-        }
-        catch(NumberFormatException ex){
-
-        }
     }//GEN-LAST:event_bCalcular1ActionPerformed
 
     private void bCalcular2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bCalcular2ActionPerformed
         // TODO add your handling code here:
+        int i = Integer.parseInt(tfNum2.getText());
+        int num = Integer.parseInt(tfNum3.getText());
+        int temp = 0;
+
+        if (i > num) {
+            JOptionPane.showMessageDialog(null, "No se puede");
+        } else {
+
+            for (int j = i; j <= num; j++) {
+                temp = temp + j;
+            }
+            JOptionPane.showMessageDialog(null, "La sumatoria entre " + i + " y " + num + " es " + temp);
+        }
     }//GEN-LAST:event_bCalcular2ActionPerformed
 
     private void bVerificar3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bVerificar3ActionPerformed
@@ -231,14 +242,41 @@ public class For extends javax.swing.JInternalFrame {
 
     private void bCalcular3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bCalcular3ActionPerformed
         // TODO add your handling code here:
+        int num = Integer.parseInt(tfNum1.getText());
+        int temp = 0;
+
+        for (int i = 0; i <= num; i++) {
+
+            temp = temp + i;
+            System.out.println(temp + " y " + i);
+        }
+
+        JOptionPane.showMessageDialog(null, "La sumatoria entre 1 y " + num + " es " + temp);
+
     }//GEN-LAST:event_bCalcular3ActionPerformed
 
     private void bImprimir6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bImprimir6ActionPerformed
         // TODO add your handling code here:
+        int serie = 7, num1 = 0, num2 = 1, suma = 1;
+
+        // Muestro el valor inicial
+        for (int i = 1; i < serie; i++) {
+
+            suma = num1 + num2;
+            num1 = num2;
+            num2 = suma;
+
+            System.out.println(num2);
+        }
     }//GEN-LAST:event_bImprimir6ActionPerformed
 
     private void bCalcular5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bCalcular5ActionPerformed
         // TODO add your handling code here:
+        for (int i = 1; i <= 100; i++) {
+            if (i % 2 == 0) {
+                System.out.println(i);
+            }
+        }
     }//GEN-LAST:event_bCalcular5ActionPerformed
 
 
